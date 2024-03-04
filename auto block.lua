@@ -2,7 +2,7 @@ local players = game:GetService("Players")
 local plr = players.LocalPlayer
 local cd = false
 local Settings = {
-    Autoparry = { Toggle = true, Range = 25, Delay = 0,Fov = 180, Facing = false,Dodgerange = 3,Aimhelper = false,},ESP = { Toggle = false, Config = {} },
+    Autoparry = { Toggle = true, Range = 15, Delay = 0,Fov = 180, Facing = true,Dodgerange = 3,Aimhelper = false,},ESP = { Toggle = false, Config = {} },
     Tpaura = {Toggle = false,},
 }
 

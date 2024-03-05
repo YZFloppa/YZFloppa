@@ -68,24 +68,10 @@ local abilities = {
 }
 
 local closestplr, anim, plrDirection, unit, value,dodge
-function lookatlol(player)
-    local plrCharacter = player.Character
-    if not plrCharacter or not plrCharacter:FindFirstChild("HumanoidRootPart") then
-        return false
-    end
-    local playerHead = plrCharacter:FindFirstChild("Head")
-    if not playerHead then
-        return false
-    end
-    local playerDirection = (playerHead.Position - plr.Character.HumanoidRootPart.Position).unit
-    local dotProduct = plr.Character.HumanoidRootPart.CFrame.LookVector:Dot(playerDirection)
-    return dotProduct > 0.4
-end
-
 function closest()
 	closestplr = {}
 	for i, v in next, players:GetChildren() do
-		if v.Character and plr.Character:WaitForChild("HumanoidRootPart", 1) and v ~= plr and v.Character ~= plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < Settings.Autoparry.Range then--and lookatlol(player) then
+		if v.Character and plr.Character:WaitForChild("HumanoidRootPart", 1) and v ~= plr and v.Character ~= plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < Settings.Autoparry.Range then
 				table.insert(closestplr, v)
 			end
 		end

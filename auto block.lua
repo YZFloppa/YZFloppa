@@ -80,7 +80,7 @@ function lookatlol(player)
         return false
     end
     local playerDirection = (playerHead.Position - humanoidRootPart.Position).unit
-    local playerlook = playerHead.CFrame.LookVector
+    local playerlook = player.Character.Head.CFrame.LookVector
     local dotProduct = playerDirection:Dot(playerLook)
     print(player.Name, "Dot Product:", dotProduct)
     return dotProduct > 0.4

@@ -3,8 +3,9 @@ local plr = players.LocalPlayer
 local cd = false
 local Settings = {
 	Autoparry = {
-		Toggle = true, Range = 20, Delay = 0,Fov = 120, Facing = true,Dodgerange = 3,Aimhelper = false,
-	},ESP = {
+		Toggle = true, Range = 20, Delay = 0,Fov = 120, Facing = true,Dodgerange = 3, Aimhelper = false,
+	},
+	ESP = {
 		Toggle = false, Config = {}
 	},
 	Tpaura = {
@@ -43,7 +44,7 @@ local anims = {
 	['rbxassetid://15240216931'] = { [1] = 0, [2] = 0.30 },
 	['rbxassetid://15240176873'] = { [1] = 0, [2] = 0.30 },
 	['rbxassetid://15162694192'] = { [1] = 0, [2] = 0.30 },
---omg s child with telekinesis
+--omg a child with telekinesis
 	['rbxassetid://16515503507'] = { [1] = 0, [2] = 0.30 },
 	['rbxassetid://16515520431'] = { [1] = 0, [2] = 0.30 },
 	['rbxassetid://16515448089'] = { [1] = 0, [2] = 0.30 },

@@ -80,11 +80,12 @@ function lookatlol(player)
         return false
     end
     local playerDirection = (playerHead.Position - humanoidRootPart.Position).unit
-    local playerlook = player.Character.Head.CFrame.LookVector
+    local playerLook = player.Character.Head and player.Character.Head.CFrame.LookVector or Vector3.new(0,0,0)
     local dotProduct = playerDirection:Dot(playerLook)
     print(player.Name, "Dot Product:", dotProduct)
     return dotProduct > 0.4
 end
+
 
 function closest()
     local closestplr = {}

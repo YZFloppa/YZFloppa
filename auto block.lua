@@ -3,7 +3,7 @@ local plr = players.LocalPlayer
 local cd = false
 local Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 8, Aimhelper = false,
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false,
 	},
 	ESP = {
 		Toggle = false, Config = {}
@@ -121,7 +121,7 @@ end
 
 local durations = {
 	["anim"] = 0.3,
-	["dodge"] = 0.6,
+	["dodge"] = 0.9,
 	["barrage"] = 0.9,
 	["ability"] = 0.6,
 }

@@ -3,7 +3,7 @@ local plr = players.LocalPlayer
 local cd = false
 local Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false,
 	}
 }
 
@@ -56,7 +56,6 @@ local barrages = {
 	["rbxassetid://10466974800"] = { [1] = 0.20, [2] = 1.80 },
 	["rbxassetid://12534735382"] = { [1] = 0.20, [2] = 1.80 }
 }
-
 local abilities = {
 	["rbxassetid://10468665991"] = { [1] = 0.15, [2] = 0.60 },
 	["rbxassetid://13376869471"] = { [1] = 0.05, [2] = 1 },
@@ -69,10 +68,24 @@ local abilities = {
 }
 
 local closestplr, anim, plrDirection, unit, value,dodge
+function lookatlol(player)
+    local plrCharacter = player.Character
+    if not plrCharacter or not plrCharacter:FindFirstChild("HumanoidRootPart") then
+        return false
+    end
+    local playerHead = plrCharacter:FindFirstChild("Head")
+    if not playerHead then
+        return false
+    end
+    local playerDirection = (playerHead.Position - plr.Character.HumanoidRootPart.Position).unit
+    local dotProduct = plr.Character.HumanoidRootPart.CFrame.LookVector:Dot(playerDirection)
+    return dotProduct > 0.4
+end
+
 function closest()
 	closestplr = {}
 	for i, v in next, players:GetChildren() do
-		if v.Character and plr.Character:WaitForChild("HumanoidRootPart", 1) and v ~= plr and v.Character ~= plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < Settings.Autoparry.Range then
+		if v.Character and plr.Character:WaitForChild("HumanoidRootPart", 1) and v ~= plr and v.Character ~= plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < Settings.Autoparry.Range and lookatlol(player) then
 				table.insert(closestplr, v)
 			end
 		end
@@ -107,12 +120,6 @@ function isfacing(object)
 		end
 	end
 end
-
-function enemyfacing(enemy)
-	if Settings.Autoparry.Toggle then
-		if Settings.Autoparry.Enemyfacing then
-			direct = plr.Character.Head.CFrame.LookVector
-			unit = (enemy.Head.CFrame.p - plr.Character.Head.CFrame.p).Unit
 
 function allowed(enemy)
 	if not plr.Character:FindFirstChild("M1ing") and not attackchecker() and isfacing(enemy) then

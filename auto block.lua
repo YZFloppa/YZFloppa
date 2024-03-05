@@ -81,13 +81,14 @@ function lookatlol(player)
     end
     local playerDirection = (playerHead.Position - humanoidRootPart.Position).unit
     local dotProduct = humanoidRootPart.CFrame.LookVector:Dot(playerDirection)
+    print(player.Name, "Dot Product:", dotProduct)
+    
     return dotProduct > 0.4
 end
 
-
 function closest()
-    closestplr = {}
-    for i, v in next, players:GetChildren() do
+    local closestplr = {}
+    for _, v in pairs(players:GetChildren()) do
         if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") then
             local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
             if distance < Settings.Autoparry.Range then
@@ -101,6 +102,7 @@ function closest()
     end
     return closestplr
 end
+
 
 
 function attackchecker()

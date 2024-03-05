@@ -198,27 +198,3 @@ task.spawn(function()
 end)
 
 warn("Executed")
-
-metal bat m1
-rbxassetid://14004222985
-rbxassetid://13997092940
-rbxassetid://14001963401
-rbxassetid://14136436157
-
-dash
-rbxassetid://13380255751
-
-atomic m1
-rbxassetid://15259161390
-rbxassetid://15240216931
-rbxassetid://15240176873
-rbxassetid://15162694192
-
-dash
-rbxassetid://13380255751
-
-tatsumaki m1
-rbxassetid://16515503507
-rbxassetid://16515520431
-rbxassetid://16515448089
-rbxassetid://16552234590

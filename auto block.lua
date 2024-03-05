@@ -73,16 +73,12 @@ function lookatlol(player)
     if not player or not player:IsA("Player") or not player.Character then
         return false
     end
-    local plrCharacter = player.Character
-    local humanoidRootPart = plrCharacter:FindFirstChild("HumanoidRootPart")
-    local playerHead = plrCharacter:FindFirstChild("Head")
-    if not humanoidRootPart or not playerHead then
-        return false
-    end
-    local playerDirection = (playerHead.Position - humanoidRootPart.Position).unit
-    local playerLook = player.Character.Head and player.Character.Head.CFrame.LookVector or Vector3.new(0,0,0)
-    local dotProduct = playerDirection:Dot(playerLook)
-    print(player.Name, "Dot Product:", dotProduct)
+    local Char = player.Character
+    local lplrChar = plr.Character
+    local ChartoHrp = (lplrChar.Head.Position - Char.Head.Position).unit
+    local CharLook = Char.Head.CFrame.LookVector
+    local dp = CharToHrp:Dot(CharLook)
+    print(player.Name, "Dot Product:", dp)
     return dotProduct > 0.4
 end
 

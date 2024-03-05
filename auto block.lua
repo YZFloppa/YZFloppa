@@ -33,11 +33,29 @@ local anims = {
 	["rbxassetid://13390230973"] = { [1] = 0, [2] = 0.30 },
 	["rbxassetid://13378751717"] = { [1] = 0, [2] = 0.30 },
 	["rbxassetid://13378708199"] = { [1] = 0, [2] = 0.30 },
+--nigga got brain issue
+	['rbxassetid://14004222985'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://13997092940'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://14001963401'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://14136436157'] = { [1] = 0, [2] = 0.30 },
+--bro think he's good at cutting shit
+	['rbxassetid://15259161390'] = { [1] = 0, [2] = 0.30 }, 
+	['rbxassetid://15240216931'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://15240176873'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://15162694192'] = { [1] = 0, [2] = 0.30 },
+--omg s child with telekinesis
+	['rbxassetid://16515503507'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://16515520431'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://16515448089'] = { [1] = 0, [2] = 0.30 },
+	['rbxassetid://16552234590'] = { [1] = 0, [2] = 0.30 },
 	abilities = {}
 }
 local dodges = {
 	["rbxassetid://10479335397"] = { [1] = 0, [2] = 0.50 },
-	["rbxassetid://13380255751"] = { [1] = 0, [2] = 0.50 }
+	["rbxassetid://13380255751"] = { [1] = 0, [2] = 0.50 },
+	['rbxassetid://13380255751'] = { [1] = 0, [2] = 0.50 },
+	['rbxassetid://13380255751'] = { [1] = 0, [2] = 0.50 },
+	
 }
 local barrages = {
 	["rbxassetid://10466974800"] = { [1] = 0.20, [2] = 1.80 },
@@ -64,8 +82,6 @@ function closest()
 		end
 	return closestplr
 end
-
-
 
 function attackchecker()
 	for i,Anim in next, plr.Character.Humanoid.Animator:GetPlayingAnimationTracks() do
@@ -181,3 +197,27 @@ task.spawn(function()
 end)
 
 warn("Executed")
+
+metal bat m1
+rbxassetid://14004222985
+rbxassetid://13997092940
+rbxassetid://14001963401
+rbxassetid://14136436157
+
+dash
+rbxassetid://13380255751
+
+atomic m1
+rbxassetid://15259161390
+rbxassetid://15240216931
+rbxassetid://15240176873
+rbxassetid://15162694192
+
+dash
+rbxassetid://13380255751
+
+tatsumaki m1
+rbxassetid://16515503507
+rbxassetid://16515520431
+rbxassetid://16515448089
+rbxassetid://16552234590

@@ -89,9 +89,11 @@ function closest()
 	closestplr = {}
 	for i, v in next, players:GetChildren() do
 		if v.Character and plr.Character:WaitForChild("HumanoidRootPart", 1) and v ~= plr and v.Character ~= plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < Settings.Autoparry.Range then
+			if lookatlol(v) then
 				table.insert(closestplr, v)
 			end
 		end
+	end
 	return closestplr
 end
 

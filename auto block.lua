@@ -69,18 +69,20 @@ local abilities = {
 
 local closestplr, anim, plrDirection, unit, value,dodge
 function lookatlol(player)
+    if not player or not player:IsA("Player") or not player.Character then
+        return false
+    end
     local plrCharacter = player.Character
-    if not plrCharacter or not plrCharacter:FindFirstChild("HumanoidRootPart") then
-        return false
-    end
+    local humanoidRootPart = plrCharacter:FindFirstChild("HumanoidRootPart")
     local playerHead = plrCharacter:FindFirstChild("Head")
-    if not playerHead then
+    if not humanoidRootPart or not playerHead then
         return false
     end
-    local playerDirection = (playerHead.Position - plr.Character.HumanoidRootPart.Position).unit
-    local dotProduct = plr.Character.HumanoidRootPart.CFrame.LookVector:Dot(playerDirection)
+    local playerDirection = (playerHead.Position - humanoidRootPart.Position).unit
+    local dotProduct = humanoidRootPart.CFrame.LookVector:Dot(playerDirection)
     return dotProduct > 0.4
 end
+
 
 function closest()
 	closestplr = {}

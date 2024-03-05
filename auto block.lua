@@ -1,3 +1,4 @@
+warn('Wait Until Fully Loaded')
 local players = game:GetService("Players")
 local plr = players.LocalPlayer
 local cd = false

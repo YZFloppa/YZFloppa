@@ -104,7 +104,7 @@ end
 
 local durations = {
 	["anim"] = 0.3,
-	["dodge"] = 0.4,
+	["dodge"] = 0.6,
 	["barrage"] = 0.9,
 	["ability"] = 0.6,
 }

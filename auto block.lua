@@ -3,7 +3,7 @@ local plr = players.LocalPlayer
 local cd = false
 local Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false,
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false
 	}
 }
 
@@ -56,6 +56,7 @@ local barrages = {
 	["rbxassetid://10466974800"] = { [1] = 0.20, [2] = 1.80 },
 	["rbxassetid://12534735382"] = { [1] = 0.20, [2] = 1.80 }
 }
+
 local abilities = {
 	["rbxassetid://10468665991"] = { [1] = 0.15, [2] = 0.60 },
 	["rbxassetid://13376869471"] = { [1] = 0.05, [2] = 1 },

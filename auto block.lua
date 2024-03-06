@@ -103,8 +103,6 @@ function closest()
     return closestplr
 end
 
-
-
 function attackchecker()
 	for i,Anim in next, plr.Character.Humanoid.Animator:GetPlayingAnimationTracks() do
 		z = anims[Anim.Animation.AnimationId]
@@ -207,8 +205,6 @@ function parry()
 		end
 	end
 end
-
-
 
 task.spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()

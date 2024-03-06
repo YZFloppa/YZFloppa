@@ -73,11 +73,14 @@ function lookatlol(player)
     if not player or not player:IsA("Player") or not player.Character then
         return false
     end
-    if player ~= plr then
-    	return true
-    end
     local Char = player.Character
+    if not Char or not Char:FindFirstChild("Head") then
+        return false
+    end
     local lplrChar = plr.Character
+    if not lplrChar or not lplrChar:FindFirstChild("Head") then
+        return false
+    end
     local Charac = (lplrChar.Head.Position - Char.Head.Position).unit
     local CharLook = Char.Head.CFrame.LookVector
     local dp = Charac:Dot(CharLook)

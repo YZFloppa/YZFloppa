@@ -73,15 +73,17 @@ function lookatlol(player)
     if not player or not player:IsA("Player") or not player.Character then
         return false
     end
+    if player ~= plr then
+    	return true
+    end
     local Char = player.Character
     local lplrChar = plr.Character
-    local ChartoHrp = (lplrChar.Head.Position - Char.Head.Position).unit
+    local Charac = (lplrChar.Head.Position - Char.Head.Position).unit
     local CharLook = Char.Head.CFrame.LookVector
-    local dp = CharToHrp:Dot(CharLook)
+    local dp = Charac:Dot(CharLook)
     print(player.Name, "Dot Product:", dp)
-    return dotProduct > 0.4
+    return dp > 0.4
 end
-
 
 function closest()
     local closestplr = {}

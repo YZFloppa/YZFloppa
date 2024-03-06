@@ -209,7 +209,7 @@ end
 task.spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()
 		if Settings.Autoparry.Toggle then
-		parry()
+			parry()
 		end
 	end)
 end)

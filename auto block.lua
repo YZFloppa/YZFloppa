@@ -81,7 +81,7 @@ function lookatlol(player)
     local Charac = (lplrChar.Head.Position - Char.Head.Position).unit
     local CharLook = Char.Head.CFrame.LookVector
     local dp = Charac:Dot(CharLook)
-    print(player.Name, "Dot Product:", dp)
+    print("Dot Product:", dp)
     return dp > 0.4
 end
 

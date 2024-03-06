@@ -81,8 +81,7 @@ function lookatlol(player)
     local Charac = (lplrChar.Head.Position - Char.Head.Position).unit
     local CharLook = Char.Head.CFrame.LookVector
     local dp = Charac:Dot(CharLook)
-    print("Dot Product:", dp)
-    return dp > 0.4
+    return dp > 0.5
 end
 
 function closest()
@@ -92,7 +91,6 @@ function closest()
             local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
             if distance < Settings.Autoparry.Range then
                 local isLooking = lookatlol(v)
-                print(v.Name, "Distance:", distance, "Looking:", isLooking)
                 if isLooking then
                     table.insert(closestplr, v)
                 end

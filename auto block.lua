@@ -89,8 +89,8 @@ end
 
 function closest()
     local closestplr = {}
-    for _, v in pairs(players:GetChildren()) do
-        if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character.Humanoid.Health > 0 and plr.Character.Humanoid.Heatlh > 0 then
+    for _, v in pairs(players:GetPlayers()) do
+        if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 and plr.Character:FindFirstChild("Humanoid") and plr.Character.Humanoid.Health > 0 then
             local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
             if distance < Settings.Autoparry.Range then
                 local isLooking = lookatlol(v)
@@ -102,6 +102,7 @@ function closest()
     end
     return closestplr
 end
+
 
 function attackchecker()
 	for i,Anim in next, plr.Character.Humanoid.Animator:GetPlayingAnimationTracks() do

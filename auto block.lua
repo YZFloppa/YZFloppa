@@ -103,7 +103,6 @@ function closest()
     return closestplr
 end
 
-
 function attackchecker()
 	for i,Anim in next, plr.Character.Humanoid.Animator:GetPlayingAnimationTracks() do
 		z = anims[Anim.Animation.AnimationId]
@@ -151,7 +150,7 @@ function def(action)
 		return
 	end
 	task.wait(Settings.Autoparry.Delay)
-	print("parry attempt".."|"..action)
+	print("parry attempt".."| "..action)
 	cd = true
 	plr.Character.Communicate:FireServer({["Goal"] = "KeyPress", ["Key"] = Enum.KeyCode.F })
 	task.wait(durations[action])

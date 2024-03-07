@@ -4,7 +4,7 @@ local plr = players.LocalPlayer
 local cd = false
 local Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true,Dodgerange = 3, Aimhelper = false,
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true, Dodgerange = 3, Aimhelper = false,
 	}
 }
 
@@ -182,12 +182,12 @@ function parry()
 				barrage = barrages[v.Animation.AnimationId]
 				if allowed(c.Character) and anim and v.TimePosition >= anim[1] and v.TimePosition <= anim[2] then
 					task.spawn(function()
-						def("anim")
+						def("m1")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and dodge and v.TimePosition > dodge[1] and v.TimePosition < dodge[2] then
 					task.spawn(function()
-						def("dodge")
+						def("dash")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then

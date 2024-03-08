@@ -69,38 +69,39 @@ local abilities = {
 }
 
 local closestplr, anim, plrDirection, unit, value,dodge
-function lookatlol(player)
-    if not player or not player:IsA("Player") or not player.Character then
-        return false
-    end
-    local plrChar = player.Character
-    if not plrChar or not plrChar:FindFirstChild("Head") or plrChar.Humanoid.Health == 0  then
-        return false
-    end
-    local lplrChar = plr.Character
-    if not lplrChar or not lplrChar:FindFirstChild("Head") or lplrChar.Humanoid.Health == 0 then
-        return false
-    end
-    local Charac = (lplrChar.Head.Position - Char.Head.Position).unit
-    local CharLook = Char.Head.CFrame.LookVector
-    local dp = Charac:Dot(CharLook)
-    return dp > 0.5
-end
+local plr = game.Players.LocalPlayer
 
+function lookatlol(player)
+	if not player or not player:IsA("Player") or not player.Character then
+		return false
+	end
+	local plrChar = player.Character
+	if not plrChar or not plrChar:FindFirstChild("Head") or plrChar.Humanoid.Health == 0 then
+		return false
+	end
+	local lplrChar = plr.Character
+	if not lplrChar or not lplrChar:FindFirstChild("Head") or lplrChar.Humanoid.Health == 0 then
+		return false
+	end
+	local charDirection = (plrChar.Head.Position - lplrChar.Head.Position).unit
+	local charLook = lplrChar.Head.CFrame.LookVector
+	local dp = charDirection:Dot(charLook)
+	return dp > 0.5
+end
 function closest()
-    local closestplr = {}
-    for _, v in next, players:GetPlayers() do
-        if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid") and plr.Character.Humanoid.Health > 0 then
-            local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
-            if distance < Settings.Autoparry.Range then
-                local isLooking = lookatlol(v)
-                if isLooking then
-                    table.insert(closestplr, v)
-                end
-            end
-        end
-    end
-    return closestplr
+	local closestplr = {}
+	for _, v in next, players:GetPlayers() do
+		if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid") and plr.Character.Humanoid.Health > 0 then
+			local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
+			if distance < Settings.Autoparry.Range then
+				local isLooking = lookatlol(v)
+				if isLooking then
+					table.insert(closestplr, v)
+				end
+			end
+		end
+	end
+	return closestplr
 end
 
 function attackchecker()

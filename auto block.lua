@@ -187,7 +187,7 @@ function parry()
 					end)
 				elseif allowed(c.Character) and dodge and v.TimePosition > dodge[1] and v.TimePosition < dodge[2] then
 					task.spawn(function()
-						def("doge")
+						def("dodge")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then

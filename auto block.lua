@@ -74,11 +74,11 @@ function lookatlol(player)
         return false
     end
     local Char = player.Character
-    if not Char or not Char:FindFirstChild("Head") then
+    if not Char or not Char:FindFirstChild("Head") or player.Humanoid.Health == 0  then
         return false
     end
     local lplrChar = plr.Character
-    if not lplrChar or not lplrChar:FindFirstChild("Head") then
+    if not lplrChar or not lplrChar:FindFirstChild("Head") or lplrChar.Humanoid.Health == 0 then
         return false
     end
     local Charac = (lplrChar.Head.Position - Char.Head.Position).unit

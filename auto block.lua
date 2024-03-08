@@ -90,7 +90,7 @@ end
 function closest()
     local closestplr = {}
     for _, v in next, players:GetPlayers() do
-        if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 and plr.Character:FindFirstChild("Humanoid") and plr.Character.Humanoid.Health > 0 then
+        if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") then
             local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
             if distance < Settings.Autoparry.Range then
                 local isLooking = lookatlol(v)
@@ -150,7 +150,7 @@ function def(action)
 		return
 	end
 	task.wait(Settings.Autoparry.Delay)
-	print("parry attempt".."| "..action)
+	print("parry attempt".."|"..action)
 	cd = true
 	plr.Character.Communicate:FireServer({["Goal"] = "KeyPress", ["Key"] = Enum.KeyCode.F })
 	task.wait(durations[action])
@@ -182,12 +182,12 @@ function parry()
 				barrage = barrages[v.Animation.AnimationId]
 				if allowed(c.Character) and anim and v.TimePosition >= anim[1] and v.TimePosition <= anim[2] then
 					task.spawn(function()
-						def("m1")
+						def("anim")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and dodge and v.TimePosition > dodge[1] and v.TimePosition < dodge[2] then
 					task.spawn(function()
-						def("dash")
+						def("doge")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then

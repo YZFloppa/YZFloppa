@@ -73,8 +73,8 @@ function lookatlol(player)
     if not player or not player:IsA("Player") or not player.Character then
         return false
     end
-    local Char = player.Character
-    if not Char or not Char:FindFirstChild("Head") or Char.Humanoid.Health == 0  then
+    local plrChar = player.Character
+    if not plrChar or not plrChar:FindFirstChild("Head") or plrChar.Humanoid.Health == 0  then
         return false
     end
     local lplrChar = plr.Character

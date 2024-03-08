@@ -74,7 +74,7 @@ function lookatlol(player)
         return false
     end
     local Char = player.Character
-    if not Char or not Char:FindFirstChild("Head") or player.Humanoid.Health == 0  then
+    if not Char or not Char:FindFirstChild("Head") or Char.Humanoid.Health == 0  then
         return false
     end
     local lplrChar = plr.Character

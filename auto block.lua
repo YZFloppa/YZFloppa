@@ -140,8 +140,8 @@ function allowed(enemy)
 end
 
 local durations = {
-	["m1"] = 0.3,
-	["dash"] = 0.3,
+	["anim"] = 0.3,
+	["dodge"] = 0.3,
 	["barrage"] = 0.9,
 	["ability"] = 0.6,
 }
@@ -183,12 +183,12 @@ function parry()
 				barrage = barrages[v.Animation.AnimationId]
 				if allowed(c.Character) and anim and v.TimePosition >= anim[1] and v.TimePosition <= anim[2] then
 					task.spawn(function()
-						def("m1")
+						def("anim")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and dodge and v.TimePosition > dodge[1] and v.TimePosition < dodge[2] then
 					task.spawn(function()
-						def("dash")
+						def("dodge")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then

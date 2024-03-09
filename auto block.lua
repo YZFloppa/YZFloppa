@@ -8,7 +8,7 @@ local Settings = {
 	}
 }
 
-local anims = {
+local m1s = {
 --YZFloppa
 	["rbxassetid://10469493270"] = { [1] = 0, [2] = 0.30 },
 	["rbxassetid://10469630950"] = { [1] = 0, [2] = 0.30 },
@@ -46,7 +46,7 @@ local anims = {
 	['rbxassetid://16552234590'] = { [1] = 0, [2] = 0.30 },
 	abilities = {}
 }
-local dodges = {
+local dashes = {
 	["rbxassetid://10479335397"] = { [1] = 0, [2] = 0.50 },
 	["rbxassetid://13380255751"] = { [1] = 0, [2] = 0.50 },
 	['rbxassetid://13380255751'] = { [1] = 0, [2] = 0.50 },
@@ -68,7 +68,7 @@ local abilities = {
 	["rbxassetid://12509505723"] = { [1] = 0.09, [2] = 2 }, -- dash for gemoss
 }
 
-local closestplr, anim, plrDirection, unit, value,dodge
+local closestplr, m1, plrDirection, unit, value,dash
 local plr = game.Players.LocalPlayer
 
 function lookatlol(player)
@@ -106,8 +106,8 @@ end
 
 function attackchecker()
 	for i,Anim in next, plr.Character.Humanoid.Animator:GetPlayingAnimationTracks() do
-		z = anims[Anim.Animation.AnimationId]
-		q = dodges[Anim.Animation.AnimationId]
+		z = m1s[Anim.Animation.AnimationId]
+		q = dashes[Anim.Animation.AnimationId]
 		j = abilities[Anim.Animation.AnimationId]
 		k = barrages[Anim.Animation.AnimationId]
 		if z or q or j or k then return true
@@ -140,8 +140,8 @@ function allowed(enemy)
 end
 
 local durations = {
-	["anim"] = 0.3,
-	["dodge"] = 0.3,
+	["m1"] = 0.3,
+	["dash"] = 0.3,
 	["barrage"] = 0.9,
 	["ability"] = 0.6,
 }
@@ -177,18 +177,18 @@ function parry()
 	for i, c in closest() do
 		if c and plr.Character:WaitForChild("HumanoidRootPart", 2) and c.Character and c.Character:FindFirstChild("Humanoid") and c.Character.Humanoid:FindFirstChild("Animator") then
 			for i, v in next, c.Character.Humanoid.Animator:GetPlayingAnimationTracks() do
-				anim = anims[v.Animation.AnimationId]
-				dodge = dodges[v.Animation.AnimationId]
+				m1 = m1s[v.Animation.AnimationId]
+				dash = dashes[v.Animation.AnimationId]
 				ability = abilities[v.Animation.AnimationId]
 				barrage = barrages[v.Animation.AnimationId]
-				if allowed(c.Character) and anim and v.TimePosition >= anim[1] and v.TimePosition <= anim[2] then
+				if allowed(c.Character) and m1 and v.TimePosition >= m1[1] and v.TimePosition <= m1[2] then
 					task.spawn(function()
-						def("anim")
+						def("m1")
 						lookat(c.Character)
 					end)
-				elseif allowed(c.Character) and dodge and v.TimePosition > dodge[1] and v.TimePosition < dodge[2] then
+				elseif allowed(c.Character) and dash and v.TimePosition > dash[1] and v.TimePosition < dash[2] then
 					task.spawn(function()
-						def("dodge")
+						def("dash")
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then

@@ -2,7 +2,7 @@ warn('Wait Until Fully Loaded')
 local players = game:GetService("Players")
 local plr = players.LocalPlayer
 local cd = false
-local Settings = {
+getgenv().Settings = {
 	Autoparry = {
 		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true, Dodgerange = 3, Aimhelper = false,
 	}
@@ -93,7 +93,7 @@ function closest()
 	for _, v in next, players:GetPlayers() do
 		if v:IsA("Player") and v ~= plr and v.Character and plr.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and plr.Character:FindFirstChild("Humanoid") and plr.Character.Humanoid.Health > 0 then
 			local distance = (v.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
-			if distance < Settings.Autoparry.Range then
+			if distance < getgenv().Settings.Autoparry.Range then
 				local isLooking = lookatlol(v)
 				if isLooking then
 					table.insert(closestplr, v)
@@ -117,12 +117,12 @@ function attackchecker()
 end
 
 function isfacing(object)
-	if Settings.Autoparry.Toggle then
-		if Settings.Autoparry.Facing then
+	if getgenv().Settings.Autoparry.Toggle then
+		if getgenv().Settings.Autoparry.Facing then
 			plrDirection = plr.Character.Head.CFrame.LookVector
 			unit = (object.Head.CFrame.p - plr.Character.Head.CFrame.p).Unit
 			value = math.pow((plrDirection - unit).Magnitude / 2, 2)
-			if value >= Settings.Autoparry.Fov / 360 then
+			if value >= getgenv().Settings.Autoparry.Fov / 360 then
 				return false
 			else
 				return true
@@ -150,7 +150,7 @@ function def(action)
 	if cd then
 		return
 	end
-	task.wait(Settings.Autoparry.Delay)
+	task.wait(getgenv().Settings.Autoparry.Delay)
 	print("parry attempt".."|"..action)
 	cd = true
 	plr.Character.Communicate:FireServer({["Goal"] = "KeyPress", ["Key"] = Enum.KeyCode.F })
@@ -168,7 +168,7 @@ function barragechecker(enemy)
 end
 
 function lookat(enemy)
-	if Settings.Autoparry.Aimhelper then
+	if getgenv().Settings.Autoparry.Aimhelper then
 		plr.Character.HumanoidRootPart.CFrame = CFrame.lookAt(plr.Character.HumanoidRootPart.Position, enemy.HumanoidRootPart.Position)
 	end
 end
@@ -209,7 +209,7 @@ end
 
 task.spawn(function()
 	game:GetService("RunService").RenderStepped:Connect(function()
-		if Settings.Autoparry.Toggle then
+		if getgenv().Settings.Autoparry.Toggle then
 			parry()
 		end
 	end)

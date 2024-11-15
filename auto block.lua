@@ -4,7 +4,7 @@ local plr = players.LocalPlayer
 local cd = false
 getgenv().Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true, Dodgerange = 3, Aimhelper = false,
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true, Dodgerange = 3, Aimhelper = false, enemy = nil
 	}
 }
 
@@ -184,21 +184,25 @@ function parry()
 				if allowed(c.Character) and m1 and v.TimePosition >= m1[1] and v.TimePosition <= m1[2] then
 					task.spawn(function()
 						def("m1")
+						getgenv().Settings.Autoparry.enemy = c.Character
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and dash and v.TimePosition > dash[1] and v.TimePosition < dash[2] then
 					task.spawn(function()
 						def("dash")
+						getgenv().Settings.Autoparry.enemy = c.Character
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and barrage and v.TimePosition > barrage[1] and v.TimePosition < barrage[2] then
 					task.spawn(function()
 						def("barrage")
+						getgenv().Settings.Autoparry.enemy = c.Character
 						lookat(c.Character)
 					end)
 				elseif allowed(c.Character) and ability and v.TimePosition > ability[1] and v.TimePosition < ability[2] then
 					task.spawn(function()
 						def("ability")
+						getgenv().Settings.Autoparry.enemy = c.Character
 						lookat(c.Character)
 					end)
 				end

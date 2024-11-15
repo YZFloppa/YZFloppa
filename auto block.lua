@@ -4,7 +4,7 @@ local plr = players.LocalPlayer
 local cd = false
 getgenv().Settings = {
 	Autoparry = {
-		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = true, Dodgerange = 3, Aimhelper = false, enemy = nil
+		Toggle = true, Range = 25, Delay = 0,Fov = 140, Facing = false, Dodgerange = 3, Aimhelper = false, enemy = nil
 	}
 }
 
